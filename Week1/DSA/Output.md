@@ -1,4 +1,4 @@
-# Output
+# Output Images
 # FinancialForecasting
 <img width="928" height="203" alt="image" src="https://github.com/user-attachments/assets/66efbb33-3af0-443c-8cd9-5addffe599a7" />
 
