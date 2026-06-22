@@ -1,8 +1,7 @@
 package EngineeringConcepts.FactoryMethodPattern;
 
 public class FactoryTest {
-
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
         DocumentFactory wordFactory =
                 new WordFactory();

@@ -1,0 +1,33 @@
+CREATE TABLE Customers (
+    CustomerID NUMBER PRIMARY KEY,
+    Name VARCHAR2(100),
+    DOB DATE,
+    Balance NUMBER,
+    LastModified DATE,
+    IsVIP VARCHAR2(5)
+);
+
+CREATE TABLE Loans (
+    LoanID NUMBER PRIMARY KEY,
+    CustomerID NUMBER,
+    LoanAmount NUMBER,
+    InterestRate NUMBER,
+    StartDate DATE,
+    EndDate DATE
+);
+
+INSERT INTO Customers
+VALUES (1,'John Doe',TO_DATE('1955-05-15','YYYY-MM-DD'),
+12000,SYSDATE,NULL);
+
+INSERT INTO Customers
+VALUES (2,'Jane Smith',TO_DATE('1990-07-20','YYYY-MM-DD'),
+5000,SYSDATE,NULL);
+
+INSERT INTO Loans
+VALUES (1,1,5000,5,SYSDATE,SYSDATE+20);
+
+INSERT INTO Loans
+VALUES (2,2,8000,6,SYSDATE,SYSDATE+50);
+
+COMMIT;
