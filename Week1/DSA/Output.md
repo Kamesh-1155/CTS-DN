@@ -1,5 +1,5 @@
 # Output Images
-The programs with DSA is executed and the output are as follows👇🏼
+The programs with DSA is executed and the outputs are as follows👇🏼:
 
 
 # FinancialForecasting
