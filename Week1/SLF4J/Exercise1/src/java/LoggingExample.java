@@ -1,3 +1,4 @@
+package Week1.SLF4J.Exercise1.src.java;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
