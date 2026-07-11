@@ -2,7 +2,6 @@ package com.cognizant.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
 import java.time.LocalDate;
 
 @Entity
@@ -10,7 +9,6 @@ public class Employee {
 
     @Id
     private Integer id;
-
     private String name;
     private Double salary;
     private LocalDate joiningDate;

@@ -1,55 +1,45 @@
 package com.cognizant;
 
-import com.cognizant.entity.Country;
-import com.cognizant.service.CountryService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
-import java.util.List;
+import com.cognizant.entity.Employee;
+import com.cognizant.service.DepartmentService;
+import com.cognizant.service.EmployeeService;
+import com.cognizant.service.SkillService;
 
 @SpringBootApplication
-public class OrmLearnApplication implements CommandLineRunner {
+public class OrmLearnApplication {
 
-    @Autowired
-    private CountryService countryService;
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrmLearnApplication.class);
+
+    private static EmployeeService employeeService;
+    private static DepartmentService departmentService;
+    private static SkillService skillService;
 
     public static void main(String[] args) {
-        SpringApplication.run(OrmLearnApplication.class, args);
+
+        ApplicationContext context = SpringApplication.run(OrmLearnApplication.class, args);
+
+        employeeService = context.getBean(EmployeeService.class);
+        departmentService = context.getBean(DepartmentService.class);
+        skillService = context.getBean(SkillService.class);
+
+        testGetEmployee();
     }
 
-    @Override
-    public void run(String... args) {
+    private static void testGetEmployee() {
 
-        System.out.println("------ All Countries ------");
-        countryService.getAllCountries().forEach(System.out::println);
+        LOGGER.info("Start");
 
-        System.out.println("\n------ Find Country (IN) ------");
-        System.out.println(countryService.getCountry("IN"));
+        Employee employee = employeeService.get(1);
 
-        System.out.println("\n------ Adding Country ------");
-        countryService.addCountry(new Country("BR", "Brazil"));
+        LOGGER.debug("Employee : {}", employee);
+        LOGGER.debug("Department : {}", employee.getDepartment());
 
-        System.out.println("\n------ Countries After Adding ------");
-        countryService.getAllCountries().forEach(System.out::println);
-        System.out.println("\n------ Updating Country ------");
-
-        Country country = countryService.getCountry("IN");
-        country.setName("Bharat");
-
-        countryService.updateCountry(country);
-
-        System.out.println("\n------ Countries After Updating ------");
-        countryService.getAllCountries().forEach(System.out::println);
-
-        System.out.println("\n------ Deleting Country BR ------");
-        countryService.deleteCountry("BR");
-
-        System.out.println("\n------ Countries After Deleting ------");
-        countryService.getAllCountries().forEach(System.out::println);
-        
-        System.out.println("\n------ Search Countries containing 'an' ------");
-        countryService.searchCountries("an").forEach(System.out::println);
+        LOGGER.info("End");
     }
 }
