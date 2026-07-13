@@ -1,8 +1,11 @@
 package com.cognizant.controller;
 
+import java.util.List;
+
 import com.cognizant.model.Country;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,5 +19,14 @@ public class CountryController {
                 new ClassPathXmlApplicationContext("country.xml");
 
         return context.getBean("india", Country.class);
+    }
+
+    @GetMapping("/countries")
+    public List<Country> getAllCountries() {
+
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("country.xml");
+
+        return context.getBean("countryList", List.class);
     }
 }
