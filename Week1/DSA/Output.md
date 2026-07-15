@@ -1,4 +1,4 @@
-# Output Images
+# Output 
 The programs with DSA is executed and the outputs are as follows.
 
 
