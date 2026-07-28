@@ -1,0 +1,23 @@
+# Log files
+*.log
+
+# Java compiled files
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Node.js
+node_modules/
+
+# Build directories
+target/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
