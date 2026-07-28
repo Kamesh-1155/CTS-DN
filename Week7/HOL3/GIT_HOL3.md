@@ -8,3 +8,5 @@ Learn how to create and resolve merge conflicts in Git.
 ```bash
 git checkout -b GitWork
 ```
+This line was added from GitConflict branch.
+This line was modified in GitConflict branch.
